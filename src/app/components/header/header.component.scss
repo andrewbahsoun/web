@@ -1,0 +1,80 @@
+@import '../../../styles/variables';
+
+:host {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+  
+.top-header {
+  width: 100vw;
+  background: $background-color;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 78px;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $accent-color;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-buttons button {
+  background: none;
+  border: none;
+  font-size: 1.15rem;
+  color: $accent-color;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  font-weight: 500;
+}
+
+.nav-buttons button.active,
+.nav-buttons button:hover {
+  background: lighten($background-color, 40%);
+  color: $background-color;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .header-content {
+    height: auto;
+    padding: 10px;
+  }
+  .site-title {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+  }
+  .nav-buttons {
+    gap: 3px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .nav-buttons button {
+    font-size: 1rem;
+    padding: 8px 7px;
+    min-width: 85px;
+  }
+}

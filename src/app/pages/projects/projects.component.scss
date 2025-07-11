@@ -1,0 +1,23 @@
+.project-photo {
+    width: 500px;     
+    height: auto;
+    border-radius: 12px;   // or 50% for a circle
+    display: block;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+
+  .image-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+  }
+
+.smaller-photo {
+    width: 250px;     
+    height: auto;
+    border-radius: 4px;   // or 50% for a circle
+    display: block;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}

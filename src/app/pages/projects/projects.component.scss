@@ -14,10 +14,11 @@
   }
 
 .smaller-photo {
-    width: 250px;     
+    width: 100%;
+    max-width: 250px;
     height: auto;
-    border-radius: 4px;   // or 50% for a circle
+    border-radius: 4px;
     display: block;
-    margin-bottom: 18px;
+    margin: 0 auto 18px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }

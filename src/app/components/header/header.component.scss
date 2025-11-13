@@ -3,7 +3,9 @@
 :host {
     font-family: 'Inter', 'Segoe UI', sans-serif;
   }
-  
+// Add (or move to your variables file if you prefer)
+ $underline-color: #7e3ff2;
+
 .top-header {
   width: 100vw;
   background: $background-color;
@@ -49,12 +51,31 @@
   cursor: pointer;
   transition: background 0.18s, color 0.18s;
   font-weight: 500;
+  position: relative; // needed for the underline anchor
+  // underline pseudo-element (hidden by default)
+  &::after {
+    content: '';
+    position: absolute;
+    left: 12px;              // aligns nicely with 18px horizontal padding
+    right: 12px;
+    bottom: 6px;             // sits inside the button’s box
+    height: 3px;
+    background: $underline-color;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms ease;
+    pointer-events: none;    // ignore pointer so hover stays on button
+  }
 }
 
 .nav-buttons button.active,
 .nav-buttons button:hover {
-  background: lighten($background-color, 40%);
-  color: $background-color;
+  // show the underline only on hover (and while hovered active)
+  // If you also want it to persist on active route, add: .nav-buttons button.active::after { transform: scaleX(1); }
+  &::after {
+    transform: scaleX(1);
+  }
 }
 
 /* Responsive for mobile */
@@ -76,5 +97,18 @@
     font-size: 1rem;
     padding: 8px 7px;
     min-width: 85px;
+    // tighten underline on small screens
+    &::after {
+      left: 7px;
+      right: 7px;
+      bottom: 4px;
+      height: 2px;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-buttons button::after {
+    transition: none;
   }
 }

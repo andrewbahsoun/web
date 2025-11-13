@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .past.positions {
     font-size: 0.8rem;
   }
@@ -10,3 +12,59 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.13);
     flex-shrink: 0;
   }
+
+  .smaller-photo {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.experience-entry {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.experience-logo {
+  width: 100px;
+  max-width: 25%;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.experience-body {
+  flex: 1;
+  
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.experience-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.experience-dates {
+  font-weight: 500;
+  color: $text-color;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .experience-entry {
+    flex-direction: column;
+  }
+
+  .experience-logo {
+    width: 120px;
+  }
+}
